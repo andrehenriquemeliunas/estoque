@@ -16,18 +16,29 @@
             <a href="login.html" id="logout" class="logout">Sair</a>
         </div>
         <div class="main-content">
-            <div class="products-section">
-                <h1>Baixo Estoque (unidades)</h1>
-                <div id="products"></div>
-            </div>
-            <div class="products-section">
-                <h1>Alto Estoque (unidades)</h1>
-                <div id="products2"></div>
-            </div>
-        </div>
-        <div id="category-counts"></div>
-    </div>
+            <h1>Quantidade de Produtos por categoria</h1>
+            <div id="category-counts" class="category-counts"></div>
 
+            <div id="categoryPopup" class="modal">
+                <div class="modal-content">
+                    <span class="close-button">&times;</span>
+                    <h2>Produtos da Categoria</h2>
+                    <div id="categoryProductsTable"></div>
+                </div>
+            </div>
+            <div class="products-wrapper">
+                <div class="products-section">
+                    <h1>Menor quantidade em Estoque</h1>
+                    <div id="products"></div>
+                </div>
+                <div class="products-section">
+                    <h1>Maior quantidade em Estoque</h1>
+                    <div id="products2"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <script src="../js/categorias.js"></script>
 </body>

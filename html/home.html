@@ -48,27 +48,29 @@
             <h2>Adicionar Produto</h2>
             <form id="addProductForm">
                 <label for="productName">Nome do Produto</label>
-                <input type="text" id="productName" name="productName" required>
+                <input type="text" id="productName" name="productName"  style="font-size: 12px;" required>
 
                 <label for="productQuantity">Quantidade em Estoque</label>
                 <div id="quant">
-                    <input type="number" id="productQuantity" name="productQuantity" required>
+                    <input type="number" id="productQuantity" name="productQuantity" required style="font-size: 12px;">
                     <!-- Adicionando o novo campo select -->
                     <label for="quantityUnit"></label>
-                    <select id="quantityUnit" name="quantityUnit" required>
-                        <option value="unidades">Unidades</option>
-                        <option value="caixas">Caixas</option>
+                    <select id="quantityUnit" name="quantityUnit" required style="font-size: 12px;">
+                        <option value="Unidades">Un</option>
+                        <option value="Caixas">Cx</option>
+                        <option value="Kg">Kg</option>
                     </select>
                     <!-- Fim do novo campo -->
                 </div>
     
                 <label for="productCategory">Categoria</label>
-                <select id="productCategory" name="productCategory" required>
+                <select id="productCategory" name="productCategory" required style="font-size: 12px;">
                     <option value="" disabled selected>Selecione uma categoria</option>
-                    <option value="Eletrônicos">Eletrônicos</option>
+                    <option value="Eletronicos">Eletronicos</option>
                     <option value="Roupas">Roupas</option>
                     <option value="Alimentos">Alimentos</option>
                     <option value="Móveis">Móveis</option>
+                    <option value="Limpeza">Limpeza</option>
                 </select>
     
                 <button type="submit">Adicionar</button>

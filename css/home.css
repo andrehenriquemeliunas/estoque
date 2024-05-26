@@ -16,7 +16,7 @@ body {
     width: 280px;
     background-color: #333;
     color: white;
-    height: 100vh;
+    height: 100%;
     padding: 20px;
     box-sizing: border-box;
     flex-shrink: 0;
@@ -103,6 +103,7 @@ div#search-container{
 
 /* Estilização da tabela */
 table {
+    font-size: 15px;
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
@@ -144,7 +145,7 @@ table td button {
 table td .edit-button {
     background-color: #4CAF50;
     color: white;
-    font-size: 12px;
+    font-size: 15px;
     margin-right: 5px;
 }
 
@@ -154,7 +155,7 @@ table td .edit-button:hover {
 
 table td .delete-button {
     background-color: #f44336;
-    font-size: 12px;
+    font-size: 15px;
     color: white;
 }
 
@@ -169,6 +170,7 @@ table td .delete-button:hover {
 }
 
 .modal {
+    font-size: 15px;
     display: none;
     position: fixed;
     z-index: 1;
@@ -242,6 +244,7 @@ form button {
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-size: 12px;
 }
 
 form button:hover {

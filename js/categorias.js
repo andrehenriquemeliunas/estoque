@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const categoriesContainer = document.getElementById('categories');
+    const productsContainer = document.getElementById('products');
+    const productsContainer2 = document.getElementById('products2');
+    const categoryCountsContainer = document.getElementById('category-counts');
 
     // Função para buscar os dados da API
     function fetchData(url) {
@@ -15,43 +17,72 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Função para criar e exibir a tabela para uma categoria específica
-    function displayCategoryTable(category, products) {
-        const categoryTable = document.createElement('table');
-        categoryTable.innerHTML = `
-            <caption>${category}</caption>
+    // Função para criar e exibir a tabela de produtos
+    function displayProductsTable(container, products) {
+        const productsTable = document.createElement('table');
+        productsTable.innerHTML = `
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nome</th>
                     <th>Quantidade</th>
+                    <th>Categoria</th>
                 </tr>
             </thead>
             <tbody>
                 ${products.map(product => `
                     <tr>
-                        <td>${product.id}</td>
                         <td>${product.nome}</td>
                         <td>${product.quantidade}</td>
+                        <td>${product.categoria}</td>
                     </tr>
                 `).join('')}
             </tbody>
         `;
-        categoriesContainer.appendChild(categoryTable);
+        container.appendChild(productsTable);
     }
 
-    // Função principal para buscar e exibir os dados por categoria
-    async function displayDataByCategory() {
-        try {
-            const categories = await fetchData('https://6651fc7e20f4f4c442796287.mockapi.io/produtos/categoria');
-            for (const category of categories) {
-                const products = await fetchData(`https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto?categoria=${category.nome}`);
-                displayCategoryTable(category.nome, products);
+    // Função para contar os produtos por categoria
+    function countProductsByCategory(products) {
+        const categoryCounts = {};
+
+        products.forEach(product => {
+            const category = product.categoria;
+            if (categoryCounts[category]) {
+                categoryCounts[category]++;
+            } else {
+                categoryCounts[category] = 1;
             }
+        });
+
+        return categoryCounts;
+    }
+
+    // Função para exibir a contagem de produtos por categoria
+    function displayCategoryCounts(counts) {
+        categoryCountsContainer.innerHTML = '';
+        Object.entries(counts).forEach(([category, count]) => {
+            const countElement = document.createElement('div');
+            countElement.textContent = `Categoria: ${category} - ${count}`;
+            categoryCountsContainer.appendChild(countElement);
+        });
+    }
+
+    // Função principal para buscar e exibir os dados de produtos com menor e maior quantidade em estoque
+    async function displayProducts() {
+        try {
+            const productsLowStock = await fetchData('https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto?sortBy=quantidade&order=asc');
+            displayProductsTable(productsContainer, productsLowStock);
+
+            const productsHighStock = await fetchData('https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto?sortBy=quantidade&order=desc');
+            displayProductsTable(productsContainer2, productsHighStock);
+
+            // Use apenas os produtos de menor quantidade para a contagem
+            const categoryCounts = countProductsByCategory(productsLowStock);
+            displayCategoryCounts(categoryCounts);
         } catch (error) {
             console.error('Erro ao carregar os dados:', error);
         }
     }
 
-    displayDataByCategory();
+    displayProducts();
 });

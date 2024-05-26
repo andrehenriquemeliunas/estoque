@@ -11,7 +11,7 @@
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">Admin</span></h2>
             <a href="#" id="visaoGeral">Visão Geral</a>
-            <a href="categorias.html" id="ajuda">Categorias</a>
+            <a href="categorias.html" id="ajuda">Categorias e Estoques</a>
             <a href="#" id="ajuda">Ajuda</a>
             <a href="login.html" id="logout" class="logout">Sair</a>
         </div>
@@ -29,6 +29,7 @@
                             <th>Código</th>
                             <th>Produto</th>
                             <th>Quantidade</th>
+                            <th>Unidade</th>
                             <th>Categoria</th>
                             <th>Ações</th>
                         </tr>
@@ -50,8 +51,17 @@
                 <input type="text" id="productName" name="productName" required>
 
                 <label for="productQuantity">Quantidade em Estoque</label>
-                <input type="number" id="productQuantity" name="productQuantity" required>
-
+                <div id="quant">
+                    <input type="number" id="productQuantity" name="productQuantity" required>
+                    <!-- Adicionando o novo campo select -->
+                    <label for="quantityUnit"></label>
+                    <select id="quantityUnit" name="quantityUnit" required>
+                        <option value="unidades">Unidades</option>
+                        <option value="caixas">Caixas</option>
+                    </select>
+                    <!-- Fim do novo campo -->
+                </div>
+    
                 <label for="productCategory">Categoria</label>
                 <select id="productCategory" name="productCategory" required>
                     <option value="" disabled selected>Selecione uma categoria</option>
@@ -60,7 +70,7 @@
                     <option value="Alimentos">Alimentos</option>
                     <option value="Móveis">Móveis</option>
                 </select>
-
+    
                 <button type="submit">Adicionar</button>
             </form>
         </div>

@@ -163,6 +163,11 @@ table td .delete-button:hover {
 }
 
 /* Modal styling */
+
+#quant{
+    display: inline-block;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -210,6 +215,16 @@ form {
 form label {
     margin-bottom: 8px;
     font-weight: bold;
+}
+
+/* Estilo para o novo campo de select */
+form .quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+form .quantity-container label {
+    margin-right: 8px;
 }
 
 form input, form select {

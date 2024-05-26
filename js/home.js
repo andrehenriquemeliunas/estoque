@@ -11,10 +11,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         return params;
     }
 
-    const params = getQueryParams();
-    const username = params.username || 'Admin';
-    document.getElementById('username').textContent = username;
-    
     // Modal functionality
     const modal = document.getElementById('addProductModal');
     const addProductLink = document.getElementById('addProductLink');
@@ -67,6 +63,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 <td>${product.id}</td>
                 <td>${product.nome}</td>
                 <td>${product.quantidade}</td>
+                <td>${product.unidade}</td>
                 <td>${product.categoria}</td>
                 <td>
                     <button class="edit-button" onclick="editProduct(${product.id})">Editar</button>
@@ -82,6 +79,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const nome = document.getElementById('productName').value;
         const quantidade = document.getElementById('productQuantity').value;
         const categoria = document.getElementById('productCategory').value;
+        const unidade = document.getElementById('quantityUnit').value;
 
         fetch('https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto', {
             method: 'POST',
@@ -91,6 +89,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             body: JSON.stringify({
                 nome,
                 quantidade,
+                unidade,
                 categoria
             })
         })
@@ -107,6 +106,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const nome = document.getElementById('productName').value;
         const quantidade = document.getElementById('productQuantity').value;
         const categoria = document.getElementById('productCategory').value;
+        const unidade = document.getElementById('quantityUnit').value;
 
         fetch(`https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto/${id}`, {
             method: 'PUT',
@@ -116,6 +116,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
             body: JSON.stringify({
                 nome,
                 quantidade,
+                unidade,
                 categoria
             })
         })
@@ -135,6 +136,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('productName').value = product.nome;
                 document.getElementById('productQuantity').value = product.quantidade;
                 document.getElementById('productCategory').value = product.categoria;
+                document.getElementById('quantityUnit').value = product.unidade;
+                
                 editingProductId = id;
                 modal.style.display = 'block';
             })

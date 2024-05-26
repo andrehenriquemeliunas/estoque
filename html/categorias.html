@@ -11,15 +11,23 @@
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">Admin</span></h2>
             <a href="home.html" id="visaoGeral">Visão Geral</a>
-            <a href="#" id="categorias">Categorias</a>
+            <a href="#" id="categorias">Categorias e Estoques</a>
             <a href="#" id="ajuda">Ajuda</a>
             <a href="login.html" id="logout" class="logout">Sair</a>
         </div>
         <div class="main-content">
-            <div id="categories"></div>
+            <div class="products-section">
+                <h1>Baixo Estoque (unidades)</h1>
+                <div id="products"></div>
+            </div>
+            <div class="products-section">
+                <h1>Alto Estoque (unidades)</h1>
+                <div id="products2"></div>
+            </div>
         </div>
-        
+        <div id="category-counts"></div>
     </div>
+
 
     <script src="../js/categorias.js"></script>
 </body>

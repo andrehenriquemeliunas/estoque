@@ -1,15 +1,10 @@
-window.addEventListener('DOMContentLoaded', (event) => {
-    let editingProductId = null; // Variável para armazenar o ID do produto sendo editado
+document.addEventListener('DOMContentLoaded', function() {
+    const productsContainer = document.getElementById('products');
+    const productsContainer2 = document.getElementById('products2');
+    const categoryCountsContainer = document.getElementById('category-counts');
+    const actionSelect = document.getElementById("actionSelect");
 
-    // Função para extrair parâmetros da URL
-    function getQueryParams() {
-        const params = {};
-        window.location.search.substring(1).split("&").forEach(param => {
-            const [key, value] = param.split("=");
-            params[key] = decodeURIComponent(value);
-        });
-        return params;
-    }
+    let editingProductId = null; // Variável para armazenar o ID do produto sendo editado
 
     // Modal functionality
     const modal = document.getElementById('addProductModal');
@@ -64,6 +59,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 <td>${product.nome}</td>
                 <td>${product.quantidade}</td>
                 <td>${product.unidade}</td>
+                <td>${product.precoUnitario}</td>
                 <td>${product.categoria}</td>
                 <td>
                     <button class="edit-button" onclick="editProduct(${product.id})">Editar</button>
@@ -80,6 +76,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const quantidade = document.getElementById('productQuantity').value;
         const categoria = document.getElementById('productCategory').value;
         const unidade = document.getElementById('quantityUnit').value;
+        const precoUnitario = document.getElementById('precoUnitario').value;
 
         fetch('https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto', {
             method: 'POST',
@@ -90,6 +87,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 nome,
                 quantidade,
                 unidade,
+                precoUnitario,
                 categoria
             })
         })
@@ -106,6 +104,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
         const nome = document.getElementById('productName').value;
         const quantidade = document.getElementById('productQuantity').value;
         const categoria = document.getElementById('productCategory').value;
+        const precoUnitario = document.getElementById('precoUnitario').value;
         const unidade = document.getElementById('quantityUnit').value;
 
         fetch(`https://6651fc7e20f4f4c442796287.mockapi.io/produtos/produto/${id}`, {
@@ -117,6 +116,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 nome,
                 quantidade,
                 unidade,
+                precoUnitario,
                 categoria
             })
         })
@@ -136,6 +136,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 document.getElementById('productName').value = product.nome;
                 document.getElementById('productQuantity').value = product.quantidade;
                 document.getElementById('productCategory').value = product.categoria;
+                document.getElementById('precoUnitario').value = product.precoUnitario;
                 document.getElementById('quantityUnit').value = product.unidade;
                 
                 editingProductId = id;
@@ -167,10 +168,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
             .catch(error => console.error('Erro ao carregar produtos:', error));
     }
 
-     // Função para exportar os dados para CSV
-     function exportTableToCsv() {
+    // Função para exportar os dados para CSV
+    function exportTableToCsv() {
         const rows = [];
-        const table = document.querySelector("table");
+        const table = document.querySelector("#productTable");
         const headers = Array.from(table.querySelectorAll("th"))
                              .filter(header => header.textContent !== "Ações")
                              .map(header => header.textContent);
@@ -199,20 +200,17 @@ window.addEventListener('DOMContentLoaded', (event) => {
         link.setAttribute("download", filename);
         document.body.appendChild(link);
         link.click();
+        document.body.removeChild(link);
     }
 
     // Event listener para o select de ações
-    document.getElementById("actionSelect").addEventListener("change", function() {
+    actionSelect.addEventListener("change", function() {
         const selectedAction = this.value;
         if (selectedAction === "exportCsv") {
             exportTableToCsv();
+            actionSelect.value = ""; // Reset the select after action
         }
     });
-
-
-
-
-   
 
     // Evento de input para a barra de pesquisa
     document.getElementById('searchBar').addEventListener('input', searchProducts);
@@ -220,3 +218,4 @@ window.addEventListener('DOMContentLoaded', (event) => {
     // Carrega produtos ao iniciar a página
     loadProducts();
 });
+

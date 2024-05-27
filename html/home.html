@@ -11,7 +11,7 @@
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">Admin</span></h2>
             <a href="#" id="visaoGeral">Visão Geral</a>
-            <a href="categorias.html" id="ajuda">Categorias e Estoques</a>
+            <a href="categorias.html" id="ajuda">Categorias e Filtros</a>
             <a href="#" id="ajuda">Ajuda</a>
             <a href="login.html" id="logout" class="logout">Sair</a>
         </div>
@@ -20,6 +20,10 @@
             <section id="ver-estoque">
                 <div class="search-container">
                     <input type="text" id="searchBar" placeholder="Pesquisar produto...">
+                    <select id="actionSelect">
+                        <option value="">Ações</option>
+                        <option value="exportCsv">Exportar para CSV</option>
+                    </select>
                     <a href="#" id="addProductLink">Adicionar Produto</a>
                 </div>
                 
@@ -56,8 +60,8 @@
                     <!-- Adicionando o novo campo select -->
                     <label for="quantityUnit"></label>
                     <select id="quantityUnit" name="quantityUnit" required style="font-size: 12px;">
-                        <option value="Unidades">Un</option>
-                        <option value="Caixas">Cx</option>
+                        <option value="Un">Un</option>
+                        <option value="Cx">Cx</option>
                         <option value="Kg">Kg</option>
                     </select>
                     <!-- Fim do novo campo -->
@@ -66,11 +70,17 @@
                 <label for="productCategory">Categoria</label>
                 <select id="productCategory" name="productCategory" required style="font-size: 12px;">
                     <option value="" disabled selected>Selecione uma categoria</option>
-                    <option value="Eletronicos">Eletronicos</option>
-                    <option value="Roupas">Roupas</option>
-                    <option value="Alimentos">Alimentos</option>
-                    <option value="Móveis">Móveis</option>
+                    <option value="Padaria">Padaria</option>
+                    <option value="Carnes">Carnes</option>
+                    <option value="Mercearia">Mercearia</option>
+                    <option value="Matinais">Matinais</option>
+                    <option value="Frios e Laticínios">Frios e Laticínios</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Utilidades">Utilidades</option>
                     <option value="Limpeza">Limpeza</option>
+                    <option value="Higiene">Higiene</option>
+                    <option value="Hortifruti">Hortifruti</option>
+                    <option value="Pet Shop">Pet Shop</option>
                 </select>
     
                 <button type="submit">Adicionar</button>

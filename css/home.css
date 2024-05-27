@@ -74,7 +74,7 @@ div#search-container{
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.068);
     transition: box-shadow 0.3s;
-    width: 91%;
+    width: 80%;
     margin-bottom: 20px;
     height: 9px;
 }
@@ -99,6 +99,18 @@ div#search-container{
 
 #addProductLink:hover {
     background-color: #0056b3;
+}
+
+#actionSelect{
+    height: 31px;
+    padding: 6px 12px;
+    margin-left: 5px;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 /* Estilização da tabela */

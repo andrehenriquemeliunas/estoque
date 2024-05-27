@@ -167,6 +167,53 @@ window.addEventListener('DOMContentLoaded', (event) => {
             .catch(error => console.error('Erro ao carregar produtos:', error));
     }
 
+     // Função para exportar os dados para CSV
+     function exportTableToCsv() {
+        const rows = [];
+        const table = document.querySelector("table");
+        const headers = Array.from(table.querySelectorAll("th"))
+                             .filter(header => header.textContent !== "Ações")
+                             .map(header => header.textContent);
+        rows.push(headers);
+
+        table.querySelectorAll("tbody tr").forEach(row => {
+            const rowData = [];
+            Array.from(row.querySelectorAll("td")).forEach((cell, index) => {
+                if (index < headers.length) {
+                    rowData.push(cell.textContent);
+                }
+            });
+            rows.push(rowData);
+        });
+
+        exportToCsv("data.csv", rows);
+    }
+
+    // Função para exportar os dados para CSV
+    function exportToCsv(filename, rows) {
+        const csvContent = "data:text/csv;charset=utf-8," 
+                         + rows.map(row => row.join(",")).join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", filename);
+        document.body.appendChild(link);
+        link.click();
+    }
+
+    // Event listener para o select de ações
+    document.getElementById("actionSelect").addEventListener("change", function() {
+        const selectedAction = this.value;
+        if (selectedAction === "exportCsv") {
+            exportTableToCsv();
+        }
+    });
+
+
+
+
+   
+
     // Evento de input para a barra de pesquisa
     document.getElementById('searchBar').addEventListener('input', searchProducts);
 

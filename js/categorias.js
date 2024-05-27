@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         categoryCountsContainer.innerHTML = '';
         Object.entries(counts).forEach(([category, count]) => {
             const countElement = document.createElement('div');
-            countElement.textContent = `${category} - ${count} produtos`;
+            countElement.textContent = `${category}: ${count} produtos`;
             countElement.dataset.category = category;
             countElement.addEventListener('click', () => {
                 displayCategoryProducts(category);

@@ -5,6 +5,7 @@ body {
     padding: 0;
     display: flex;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -16,10 +17,14 @@ body {
     width: 280px;
     background-color: #333;
     color: white;
-    height: 100%;
+    height: 100vh;
     padding: 20px;
     box-sizing: border-box;
     flex-shrink: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
 }
 
 .sidebar h2 {
@@ -53,10 +58,12 @@ body {
 }
 
 .main-content {
-    flex-grow: 1;
+    margin-left: 280px;
     padding: 20px;
+    overflow-y: auto;
+    height: 100vh;
     box-sizing: border-box;
-    overflow-y: auto; /* Ensure scrolling if content overflows */
+    width: calc(100% - 280px);
 }
 
 .main-content h1 {

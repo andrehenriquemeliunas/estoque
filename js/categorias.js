@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoryPopup = document.getElementById('categoryPopup');
     const closeButton = document.querySelector('.close-button');
     const categoryProductsTable = document.getElementById('categoryProductsTable');
+    const salesSummaryTable = document.getElementById('salesSummaryTable');
 
     let lowStockProducts = [];
     let highStockProducts = [];
@@ -159,6 +160,68 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Erro ao carregar os dados:', error);
         }
     }
+
+    // Função para calcular o resumo de vendas por data
+    function calculateSalesSummary(orders) {
+        const salesSummary = {};
+
+        orders.forEach(order => {
+            const date = order.data; // Assumindo que a data está no formato "DD/MM/YYYY"
+            if (!salesSummary[date]) {
+                salesSummary[date] = 0;
+            }
+            salesSummary[date] += order.valor;
+        });
+
+        return salesSummary;
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // Função para carregar pedidos da API
+        function loadOrders() {
+            fetch('https://6651fc7e20f4f4c442796287.mockapi.io/produtos/pedido')
+                .then(response => response.json())
+                .then(orders => {
+                    const salesSummary = calculateSalesSummary(orders);
+                    displaySalesSummary(salesSummary);
+                })
+                .catch(error => console.error('Erro ao carregar pedidos:', error));
+        }
+    
+        // Função para calcular o resumo de vendas por data
+        function calculateSalesSummary(orders) {
+            const salesSummary = {};
+    
+            orders.forEach(order => {
+                const date = order.data; // Assumindo que a data está no formato "DD/MM/YYYY"
+                if (!salesSummary[date]) {
+                    salesSummary[date] = 0;
+                }
+                salesSummary[date] += order.valor;
+            });
+    
+            return salesSummary;
+        }
+    
+        // Função para exibir o resumo de vendas na tabela
+        function displaySalesSummary(salesSummary) {
+            const salesSummaryTableBody = document.getElementById('salesSummaryTable').querySelector('tbody');
+            salesSummaryTableBody.innerHTML = '';
+    
+            Object.entries(salesSummary).forEach(([date, totalValue]) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${date}</td>
+                    <td>R$ ${totalValue.toFixed(2)}</td>
+                `;
+                salesSummaryTableBody.appendChild(row);
+            });
+        }
+    
+        // Carregar pedidos ao iniciar a página
+        loadOrders();
+    });
+    
 
     displayProducts();
 

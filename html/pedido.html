@@ -11,30 +11,44 @@
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">Admin</span></h2>
             <a href="home.html" id="visaoGeral">Visão Geral</a>
-            <a href="pedido.html" id="pedido">Pedido</a>
-            <a href="categorias.html" id="categoria">Categorias e Filtros</a>
+            <a href="pedido.html" id="pedido">Pedidos</a>
+            <a href="categorias.html" id="categoria">Relatórios</a>
             <a href="#" id="ajuda">Ajuda</a>
             <a href="login.html" id="logout" class="logout">Sair</a>
         </div>
-        <div class="main-content">
-            <div id="order-section">
-                <h2>Fazer Pedido</h2>
-                <div id="order-form">
+        <main id="content">
+            <h1>Fazer Pedido</h2>
+            <div class="product-container">
+                <div>
                     <label for="productSelect">Produto:</label>
                     <select id="productSelect"></select>
+                </div>
+                <div>
                     <label for="unitPrice">Preço Unitário:</label>
                     <input type="text" id="unitPrice" readonly>
-                    <label for="orderQuantity">Quantidade:</label>
-                    <input type="number" id="orderQuantity" min="1">
-                    <button id="finalizeOrderButton">Finalizar Pedido</button>
                 </div>
-                <div id="order-summary">
-                    <h3>Resumo do Pedido</h3>
-                    <div id="orderItems"></div>
-                    <div id="totalPrice">Total: R$ 0,00</div>
+                <div>
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" id="quantity">
                 </div>
+                <button id="finalizeOrder">Adicionar Produto</button>
+                <button id="sendOrder">Finalizar Pedido</button>
+                <div id="orderSummary"></div>
             </div>
-        </div>
+    
+            <h1>Pedidos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID do Pedido</th>
+                        <th>Data</th>
+                        <th>Valor Total</th>
+                        <th>Produtos</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTableBody"></tbody>
+            </table>
+        </main>
 
                 
     <script src="../js/pedido.js"></script>

@@ -52,48 +52,89 @@ body {
     width: calc(200px);
 }
 
-/* Estilo para a seção de pedidos */
-#order-section {
+main{
+    margin-left: 20px;
     margin-top: 20px;
-    margin-left: 100px;
-    width: 100%;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-#order-form label,
-#order-form input,
-#order-form select,
-#order-form button {
-    display: block;
+/* Estilo para a seção de pedidos */
+.product-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.product-container div {
     margin-bottom: 10px;
 }
 
-#order-form button {
-    padding: 10px 20px;
+.product-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.product-container select,
+.product-container input {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.product-container button {
     background-color: #4CAF50;
     color: white;
     border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     border-radius: 4px;
     cursor: pointer;
 }
 
-#order-form button:hover {
+.product-container button:hover {
     background-color: #45a049;
 }
 
-#order-summary {
-    margin-top: 20px;
+/* Estilização da tabela */
+table {
+    font-size: 15px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-#orderItems {
-    margin-bottom: 10px;
+table thead {
+    background-color: #f4f4f4;
 }
 
-#totalPrice {
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: #333;
     font-weight: bold;
-    font-size: 1.2em;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
 }

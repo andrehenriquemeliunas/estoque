@@ -269,3 +269,15 @@ form button {
 form button:hover {
     background-color: #45a049;
 }
+
+footer{
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+footer label{
+    font-weight: bold;
+}

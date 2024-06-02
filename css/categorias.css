@@ -201,3 +201,15 @@ button:hover {
     margin-bottom: 50px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+
+footer{
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+footer label{
+    font-weight: bold;
+}

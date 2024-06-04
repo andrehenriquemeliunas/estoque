@@ -270,6 +270,28 @@ form button:hover {
     background-color: #45a049;
 }
 
+.low-stock-alert {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.low-stock-alert button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
 footer{
     color: #333;
     text-align: center;

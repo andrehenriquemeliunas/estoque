@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(products => {
                 displayProducts(products);
+                checkLowStock(products); // Verifica o estoque baixo
             })
             .catch(error => console.error('Erro ao carregar produtos:', error));
     }
@@ -203,6 +204,21 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.removeChild(link);
     }
 
+    // Função para verificar estoque baixo e exibir aviso
+    function checkLowStock(products) {
+        const lowStockProducts = products.filter(product => product.quantidade < 5);
+        if (lowStockProducts.length > 0) {
+            const lowStockMessage = lowStockProducts.map(product => `${product.nome} (Quantidade: ${product.quantidade})`).join(', ');
+            document.getElementById('lowStockMessage').textContent = `Estoque baixo: ${lowStockMessage}`;
+            document.getElementById('lowStockAlert').style.display = 'block';
+        }
+    }
+
+    // Evento para fechar o alerta de estoque baixo
+    document.getElementById('closeAlertButton').addEventListener('click', function() {
+        document.getElementById('lowStockAlert').style.display = 'none';
+    });
+
     // Event listener para o select de ações
     actionSelect.addEventListener("change", function() {
         const selectedAction = this.value;
@@ -214,8 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Evento de input para a barra de pesquisa
     document.getElementById('searchBar').addEventListener('input', searchProducts);
-
+    
     // Carrega produtos ao iniciar a página
     loadProducts();
 });
-

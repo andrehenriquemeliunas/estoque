@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function checkLowStock(products) {
         const lowStockProducts = products.filter(product => product.quantidade < 5);
         if (lowStockProducts.length > 0) {
-            const lowStockMessage = lowStockProducts.map(product => `${product.nome} (Quantidade: ${product.quantidade})`).join(', ');
+            const lowStockMessage = lowStockProducts.map(product => `${product.nome}`).join(', ');
             document.getElementById('lowStockMessage').textContent = `Estoque baixo: ${lowStockMessage}`;
             document.getElementById('lowStockAlert').style.display = 'block';
         }
@@ -227,6 +227,17 @@ document.addEventListener('DOMContentLoaded', function() {
             actionSelect.value = ""; // Reset the select after action
         }
     });
+
+    const typebotInitScript = document.createElement("script");
+typebotInitScript.type = "module";
+typebotInitScript.innerHTML = `import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js'
+
+Typebot.initBubble({
+  typebot: "my-typebot-0lij7sp",
+  theme: { placement: "right", button: { backgroundColor: "#0042DA" } },
+});
+`;
+document.body.append(typebotInitScript);
 
     // Evento de input para a barra de pesquisa
     document.getElementById('searchBar').addEventListener('input', searchProducts);

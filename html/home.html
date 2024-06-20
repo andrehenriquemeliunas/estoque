@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">admin</span></h2>
-            <a href="#" id="visaoGeral">Visão Geral</a>
-            <a href="pedido.html" id="pedido">Pedidos</a>
-            <a href="categorias.html" id="categoria">Relatórios</a>
-            <a href="login.html" id="logout" class="logout">Sair</a>
+            <a href="#" id="visaoGeral"><i class="fas fa-tachometer-alt"></i> Visão Geral</a>
+            <a href="pedido.html" id="pedido"><i class="fas fa-clipboard-list"></i> Pedidos</a>
+            <a href="categorias.html" id="categoria"><i class="fas fa-chart-line"></i> Relatórios</a>
+            <a href="login.html" id="logout" class="logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>
         <div class="main-content">
             <h1>Controle de Estoque</h1>
@@ -24,7 +25,7 @@
                         <option value="">Ações</option>
                         <option value="exportCsv">Exportar para CSV</option>
                     </select>
-                    <a href="#" id="addProductLink">Adicionar Produto</a>
+                    <a href="#" id="addProductLink" class="button"><i class="fas fa-plus"></i> Adicionar Produto</a>
                 </div>
                 
                 <table id="productTable">
@@ -47,7 +48,6 @@
             <div id="lowStockAlert" class="low-stock-alert">
                 <button id="closeAlertButton">&times;</button>
                 <span id="lowStockMessage"></span>
-                
             </div>
             <footer>
                 <p>Todos os direitos reservados &copy; Desenvolvido por <label for="nome">André Meliunas</label> - <label for="cnpj">52.576.710/0001-68</label></p>
@@ -61,24 +61,24 @@
             <h2>Adicionar Produto</h2>
             <form id="addProductForm">
                 <label for="productName">Nome do Produto</label>
-                <input type="text" id="productName" name="productName"  style="font-size: 12px;" required>
+                <input type="text" id="productName" name="productName" required>
 
                 <label for="productQuantity">Quantidade em Estoque</label>
                 <div id="quant">
-                    <input type="number" id="productQuantity" name="productQuantity" required style="font-size: 12px;">
+                    <input type="number" id="productQuantity" name="productQuantity" required>
                     <label for="quantityUnit"></label>
-                    <select id="quantityUnit" name="quantityUnit" required style="font-size: 12px;">
+                    <select id="quantityUnit" name="quantityUnit" required>
                         <option value="Un">Un</option>
                         <option value="Cx">Cx</option>
                         <option value="Kg">Kg</option>
                     </select>
                 </div>
 
-                <label for="productName">Preço do Produto</label>
-                <input type="number" step="0.01" id="precoUnitario" name="precoUnitario" required style="font-size: 12px;">
+                <label for="precoUnitario">Preço do Produto</label>
+                <input type="number" step="0.01" id="precoUnitario" name="precoUnitario" required>
     
                 <label for="productCategory">Categoria</label>
-                <select id="productCategory" name="productCategory" required style="font-size: 12px;">
+                <select id="productCategory" name="productCategory" required>
                     <option value="" disabled selected>Selecione uma categoria</option>
                     <option value="Padaria">Padaria</option>
                     <option value="Carnes">Carnes</option>
@@ -95,9 +95,7 @@
     
                 <button type="submit">Adicionar</button>
             </form>
-            
         </div>
-        
     </div>
 
     <script src="../js/home.js"></script>

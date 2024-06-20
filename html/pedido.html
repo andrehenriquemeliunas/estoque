@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Fazer Pedido</title>
     <link rel="stylesheet" href="../css/pedido.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">admin</span></h2>
-            <a href="home.html" id="visaoGeral">Visão Geral</a>
-            <a href="pedido.html" id="pedido">Pedidos</a>
-            <a href="categorias.html" id="categoria">Relatórios</a>
-            <a href="login.html" id="logout" class="logout">Sair</a>
+            <a href="home.html" id="visaoGeral"><i class="fas fa-tachometer-alt"></i> Visão Geral</a>
+            <a href="pedido.html" id="pedido"><i class="fas fa-clipboard-list"></i> Pedidos</a>
+            <a href="#" id="categorias"><i class="fas fa-chart-line"></i> Relatórios</a>
+            <a href="login.html" id="logout" class="logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>
-        <div class="main-content">
-            <h1>Fazer Pedido</h2>
-            <div class="product-container">
+        <main class="main-content">
+            <h1>Fazer Pedido</h1>
+            <section class="product-container">
                 <div>
-                    <label for="productSelect">Produto:</label>
+                    <label for="productSelect"><i class="fas fa-shopping-cart"></i> Produto:</label>
                     <select id="productSelect"></select>
                 </div>
                 <div>
-                    <label for="unitPrice">Preço Unitário:</label>
+                    <label for="unitPrice"><i class="fas fa-dollar-sign"></i> Preço Unitário:</label>
                     <input type="text" id="unitPrice" readonly>
                 </div>
                 <div>
-                    <label for="quantity">Quantidade:</label>
+                    <label for="quantity"><i class="fas fa-box"></i> Quantidade:</label>
                     <input type="number" id="quantity">
                 </div>
-                <button id="finalizeOrder">Adicionar</button>
-                <button id="sendOrder">Finalizar Pedido</button>
+                <button id="finalizeOrder"><i class="fas fa-plus-circle"></i> Adicionar</button>
+                <button id="sendOrder"><i class="fas fa-check-circle"></i> Finalizar Pedido</button>
                 <div id="orderSummary"></div>
-            </div>
-    
-            <h1>Pedidos</h2>
+            </section>
+
+            <h1>Pedidos</h1>
             <table>
                 <thead>
                     <tr>
@@ -50,10 +51,9 @@
             <footer>
                 <p>Todos os direitos reservados &copy; Desenvolvido por <label for="nome">André Meliunas</label> - <label for="cnpj">52.576.710/0001-68</label></p>
             </footer>
-        </div>
+        </main>
+    </div>
 
-        
-    
     <script src="../js/pedido.js"></script>
 </body>
 </html>

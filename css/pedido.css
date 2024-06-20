@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 /* Estilização do layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(135deg, #74ABE2 0%, #5563DE 100%);
+    color: #333;
 }
 
 .container {
@@ -25,6 +29,12 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 300px;
 }
 
 .sidebar h2 {
@@ -32,7 +42,7 @@ body {
     margin-bottom: 20px;
 }
 
-#pedido{
+#pedido {
     background-color: #444;
 }
 
@@ -40,10 +50,10 @@ body {
     display: block;
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 10px;
     font-size: 15px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
 }
 
@@ -54,25 +64,29 @@ body {
 .sidebar .logout {
     position: absolute;
     bottom: 20px;
-    width: calc(200px);
+    width: calc(100% - 40px);
 }
 
-.main-content{
+.main-content {
     margin-left: 280px;
     padding: 20px;
     overflow-y: auto;
     height: 100vh;
     box-sizing: border-box;
     width: calc(100% - 280px);
+    background-color: #f9f9f9;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    transition: margin-left 0.3s ease;
 }
 
 /* Estilo para a seção de pedidos */
 .product-container {
-    background-color: #f9f9f9;
+    background-color: #fff;
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     width: 68%;
 }
 
@@ -90,40 +104,41 @@ body {
 .product-container select,
 .product-container input {
     width: 90%;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 15px;
+    transition: border-color 0.3s ease;
+}
+
+.product-container select:focus,
+.product-container input:focus {
+    border-color: #4950af;
+}
+
+#finalizeOrder,
+#sendOrder {
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #finalizeOrder {
     background-color: #4950af;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 #sendOrder {
     background-color: #4CAF50;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-    cursor: pointer;
 }
 
 #sendOrder:hover {
@@ -167,14 +182,16 @@ table tr:hover {
     background-color: #f1f1f1;
 }
 
-footer{
+footer {
     color: #333;
     text-align: center;
     padding: 10px 0;
     position: relative;
     width: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer label{
+footer label {
     font-weight: bold;
 }

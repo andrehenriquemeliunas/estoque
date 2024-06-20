@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos por Categoria</title>
     <link rel="stylesheet" href="../css/categorias.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <div class="sidebar">
             <h2>Bem-vindo, <span id="username">admin</span></h2>
-            <a href="home.html" id="visaoGeral">Visão Geral</a>
-            <a href="pedido.html" id="pedido">Pedidos</a>
-            <a href="#" id="categorias">Relatórios</a>
-            <a href="login.html" id="logout" class="logout">Sair</a>
+            <a href="home.html" id="visaoGeral"><i class="fas fa-tachometer-alt"></i> Visão Geral</a>
+            <a href="pedido.html" id="pedido"><i class="fas fa-clipboard-list"></i> Pedidos</a>
+            <a href="#" id="categorias"><i class="fas fa-chart-line"></i> Relatórios</a>
+            <a href="login.html" id="logout" class="logout"><i class="fas fa-sign-out-alt"></i> Sair</a>
         </div>
         <div class="main-content">
-            <h1>Quantidade de Produtos por categoria</h1>
+            <h1>Quantidade de Produtos por Categoria</h1>
             <div id="category-counts" class="category-counts"></div>
 
             <div id="categoryPopup" class="modal">
@@ -28,11 +29,11 @@
             </div>
             <div class="products-wrapper">
                 <div class="products-section">
-                    <h1>Menor quantidade em Estoque</h1>
+                    <h1>Menor Quantidade em Estoque</h1>
                     <div id="products"></div>
                 </div>
                 <div class="products-section">
-                    <h1>Maior quantidade em Estoque</h1>
+                    <h1>Maior Quantidade em Estoque</h1>
                     <div id="products2"></div>
                 </div>
             </div>
@@ -48,11 +49,10 @@
                     <!-- Os dados serão preenchidos pelo JavaScript -->
                 </tbody>
             </table>
-<footer>
-            <p>Todos os direitos reservados &copy; Desenvolvido por <label for="nome">André Meliunas</label> - <label for="cnpj">52.576.710/0001-68</label></p>
-        </footer>
+            <footer>
+                <p>Todos os direitos reservados &copy; Desenvolvido por <label for="nome">André Meliunas</label> - <label for="cnpj">52.576.710/0001-68</label></p>
+            </footer>
         </div>
-        
     </div>
 
     <script src="../js/categorias.js"></script>

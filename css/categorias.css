@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 /* Estilização do layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(135deg, #74ABE2 0%, #5563DE 100%);
+    color: #333;
 }
 
 .container {
@@ -25,6 +29,12 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 300px;
 }
 
 .sidebar h2 {
@@ -32,7 +42,7 @@ body {
     margin-bottom: 20px;
 }
 
-#categorias{
+#categorias {
     background-color: #444;
 }
 
@@ -40,10 +50,10 @@ body {
     display: block;
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 10px;
     font-size: 15px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
 }
 
@@ -54,7 +64,7 @@ body {
 .sidebar .logout {
     position: absolute;
     bottom: 20px;
-    width: calc(200px);
+    width: calc(100% - 40px);
 }
 
 .main-content {
@@ -64,7 +74,9 @@ body {
     height: 100vh;
     box-sizing: border-box;
     width: calc(100% - 280px);
-    
+    background-color: #f9f9f9;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    transition: margin-left 0.3s ease;
 }
 
 .products-wrapper {
@@ -134,9 +146,14 @@ table tr:hover {
     padding: 10px;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#category-counts div:hover {
+    background-color: #f1f1f1;
 }
 
 /* Estilização do modal (pop-up) */
@@ -181,9 +198,9 @@ table tr:hover {
 button {
     padding: 10px 20px;
     margin-top: 2px;
-    font-size: 12px;
+    font-size: 16px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
@@ -202,14 +219,16 @@ button:hover {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-footer{
+footer {
     color: #333;
     text-align: center;
     padding: 10px 0;
     position: relative;
     width: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer label{
+footer label {
     font-weight: bold;
 }

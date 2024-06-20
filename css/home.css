@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 /* Estilização do layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(135deg, #74ABE2 0%, #5563DE 100%);
+    color: #333;
 }
 
 .container {
@@ -25,6 +29,12 @@ body {
     top: 0;
     left: 0;
     overflow-y: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.sidebar:hover {
+    width: 300px;
 }
 
 .sidebar h2 {
@@ -32,18 +42,14 @@ body {
     margin-bottom: 20px;
 }
 
-#visaoGeral{
-    background-color: #444;
-}
-
 .sidebar a {
     display: block;
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 10px;
     font-size: 15px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: background-color 0.3s ease;
 }
 
@@ -54,7 +60,7 @@ body {
 .sidebar .logout {
     position: absolute;
     bottom: 20px;
-    width: calc(200px);
+    width: calc(100% - 40px);
 }
 
 .main-content {
@@ -64,60 +70,72 @@ body {
     height: 100vh;
     box-sizing: border-box;
     width: calc(100% - 280px);
+    background-color: #f9f9f9;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+    transition: margin-left 0.3s ease;
 }
 
 .main-content h1 {
     margin-bottom: 20px;
+    font-size: 28px;
 }
 
-div#search-container{
+div#search-container {
     display: inline-block;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 #searchBar {
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
     border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.068);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s;
     width: 80%;
     margin-bottom: 20px;
-    height: 9px;
 }
 
 #searchBar:focus {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     outline: none;
 }
 
 #addProductLink {
     height: 40px;
-    padding: 6px 12px;
+    padding: 10px 20px;
     margin-left: 5px;
     font-size: 16px;
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 #addProductLink:hover {
     background-color: #0056b3;
 }
 
-#actionSelect{
-    height: 31px;
-    padding: 6px 12px;
+#actionSelect {
+    height: 40px;
+    padding: 10px;
     margin-left: 5px;
     font-size: 16px;
-    color: rgb(0, 0, 0);
-    border: none;
-    cursor: pointer;
+    color: #333;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+#actionSelect:focus {
+    border-color: #007BFF;
+    outline: none;
 }
 
 /* Estilização da tabela */
@@ -126,7 +144,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 table thead {
@@ -156,7 +174,7 @@ table tr:hover {
 table td button {
     padding: 8px 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -183,11 +201,6 @@ table td .delete-button:hover {
 }
 
 /* Modal styling */
-
-#quant{
-    display: inline-block;
-}
-
 .modal {
     font-size: 15px;
     display: none;
@@ -238,7 +251,6 @@ form label {
     font-weight: bold;
 }
 
-/* Estilo para o novo campo de select */
 form .quantity-container {
     display: flex;
     align-items: center;
@@ -250,26 +262,34 @@ form .quantity-container label {
 
 form input, form select {
     margin-bottom: 16px;
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #007BFF;
+    outline: none;
 }
 
 form button {
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 form button:hover {
     background-color: #45a049;
 }
 
+/* Low stock alert styling */
 .low-stock-alert {
     display: none;
     position: fixed;
@@ -292,14 +312,17 @@ form button:hover {
     cursor: pointer;
 }
 
-footer{
+/* Footer styling */
+footer {
     color: #333;
     text-align: center;
     padding: 10px 0;
     position: relative;
     width: 100%;
+    background-color: #f4f4f4;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
-footer label{
+footer label {
     font-weight: bold;
 }

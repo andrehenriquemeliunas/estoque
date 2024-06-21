@@ -36,7 +36,7 @@ document.getElementById('signupForm').addEventListener('submit', function(event)
         successMessage.style.display = 'block';
         errorMessage.style.display = 'none';
         setTimeout(() => {
-            window.location.href = '../html/login.html';
+            window.location.href = '../html/index.html';
         }, 2000);
     })
     .catch(error => {

@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Função para exportar os dados para CSV
-    function exportTableToCsv() {
+    /*function exportTableToCsv() {
         const rows = [];
         const table = document.querySelector("#productTable");
         const headers = Array.from(table.querySelectorAll("th"))
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         exportToCsv("data.csv", rows);
-    }
+    }*/
 
     // Função para exportar os dados para CSV
     function exportToCsv(filename, rows) {
@@ -220,13 +220,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Event listener para o select de ações
-    actionSelect.addEventListener("change", function() {
+    /*actionSelect.addEventListener("change", function() {
         const selectedAction = this.value;
         if (selectedAction === "exportCsv") {
             exportTableToCsv();
             actionSelect.value = ""; // Reset the select after action
         }
-    });
+    });*/
 
     const typebotInitScript = document.createElement("script");
 typebotInitScript.type = "module";
